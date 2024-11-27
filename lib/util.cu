@@ -42,5 +42,9 @@ PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
         .def_readwrite("iteration", &Info::iteration)
         .def_readwrite("value", &Info::value)
         .def_readwrite("time", &Info::time);
+    m.def("it_syrk", [](Info &result) {
+        it_syrk(&result);
+    }, "Perform iterative SYRK operation");
 }
+
 #endif

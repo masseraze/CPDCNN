@@ -14,4 +14,9 @@ time_interval = end_time - start_time
 print(f"interval {time_interval}")
 
 matrix = util.Matrix(1024,1,1024,1)
-print(f"{matrix.getA()}")
+print(f"matrix object {matrix.getA()}")
+
+result = util.Info(1024, 0.001, 1024, 1.0, 1000, 0.0, 0.0)
+print(f"Info object {result.matrix.getA()}")
+util.it_syrk(result)
+print(f"result value{result.value}")
