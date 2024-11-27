@@ -5,6 +5,8 @@ set(CMAKE_OUTPUT_TEST_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/test)
 # add test resource here
 add_executable(${L1}
     # add needed lib or source code here
+    ../lib/util.cu
+    ../lib/cublas-norm/syrk.cu
     test1.cpp
 )
 
@@ -18,7 +20,7 @@ set_target_properties(${L1} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_OUTPUT_T
 set_target_properties(${TESTSYRK} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_OUTPUT_TEST_DIRECTORY})
 
 # Link Google Test obj file
-target_link_libraries(${L1} gtest gtest_main)
+target_link_libraries(${L1} gtest gtest_main cudart cublas)
 target_link_libraries(${TESTSYRK} PRIVATE gtest gtest_main cudart cublas)
 
 # add test to activate ctest -VV

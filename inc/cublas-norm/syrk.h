@@ -29,6 +29,8 @@ public:
 // Declaration of Info class
 class Info {
 public:
+    float *tensor;
+    int shape[5];
     Matrix matrix;
     int iteration;
     double value;
