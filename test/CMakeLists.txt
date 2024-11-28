@@ -20,7 +20,14 @@ set_target_properties(${L1} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_OUTPUT_T
 set_target_properties(${TESTSYRK} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_OUTPUT_TEST_DIRECTORY})
 
 # Link Google Test obj file
-target_link_libraries(${L1} gtest gtest_main cudart cublas)
+target_link_libraries(${L1} 
+    PRIVATE
+        gtest
+        gtest_main
+        cudart
+        cublas
+        torch
+)
 target_link_libraries(${TESTSYRK} PRIVATE gtest gtest_main cudart cublas)
 
 # add test to activate ctest -VV

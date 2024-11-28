@@ -1,5 +1,7 @@
 #include <sys/time.h>
 #include "cublas-norm/syrk.h"
+#include "util.h"
+
 double get_time() {
    struct timeval t;
    gettimeofday(&t, NULL);

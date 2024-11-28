@@ -103,5 +103,8 @@ TEST(tensor_transformation, threetofive){
 }
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
+    auto tensor = torch::rand({3, 4, 5});
+    Tmp info(tensor, 10, 3.14, 2.71);
+    info.printShape();
     return RUN_ALL_TESTS();
 }
